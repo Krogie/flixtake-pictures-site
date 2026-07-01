@@ -2,12 +2,75 @@
 <html lang="de">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Flixtake Pictures — Filme</title>
-<meta name="description" content="Flixtake Pictures — ein Film-Studio aus Hamburg. Spielfilme, Kurzfilme und Serien." />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Flixtake Pictures — Kino-Studio aus Hamburg | Filme, Serien &amp; Kurzfilme</title>
+<meta name="description" content="Flixtake Pictures ist ein Kino-Studio aus Hamburg: Spielfilme, Serien und Kurzfilme, gedreht auf ARRI ALEXA LF — von Skogstad über Brain Rent bis Für Elise." />
+<link rel="canonical" href="https://flixtakepictures.com/" />
+<meta name="robots" content="index,follow,max-image-preview:large" />
+<meta name="theme-color" content="#0a0a0b" />
+<meta name="author" content="Flixtake Pictures" />
+<meta name="keywords" content="Flixtake Pictures, Filmproduktion Hamburg, Kino Studio, Spielfilm, Kurzfilm, Serie, Skogstad, Brain Rent, Für Elise, Louis Krogmann, Finn Schmüser, ARRI ALEXA LF" />
+<meta name="format-detection" content="telephone=no" />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Flixtake Pictures" />
+<meta property="og:locale" content="de_DE" />
+<meta property="og:title" content="Flixtake Pictures — Kino-Studio aus Hamburg" />
+<meta property="og:description" content="Spielfilme, Serien und Kurzfilme aus Hamburg — gedreht auf ARRI ALEXA LF." />
+<meta property="og:url" content="https://flixtakepictures.com/" />
+<meta property="og:image" content="https://flixtakepictures.com/img/hero/brain-rent.jpg" />
+<meta property="og:image:width" content="1428" />
+<meta property="og:image:height" content="803" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Flixtake Pictures — Kino-Studio aus Hamburg" />
+<meta name="twitter:description" content="Spielfilme, Serien und Kurzfilme aus Hamburg — gedreht auf ARRI ALEXA LF." />
+<meta name="twitter:image" content="https://flixtakepictures.com/img/hero/brain-rent.jpg" />
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230a0a0b'/%3E%3Ctext x='16' y='23' font-family='Arial,sans-serif' font-size='20' font-weight='700' fill='%23fff' text-anchor='middle'%3EF%3C/text%3E%3C/svg%3E" />
+
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="preload" as="image" href="img/hero/brain-rent.jpg" fetchpriority="high" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://flixtakepictures.com/#org",
+      "name": "Flixtake Pictures",
+      "url": "https://flixtakepictures.com/",
+      "logo": "https://flixtakepictures.com/img/hero/brain-rent.jpg",
+      "email": "pictures@flixtake.com",
+      "telephone": "+49-175-6259995",
+      "address": {"@type": "PostalAddress", "streetAddress": "Mittelweg 166", "postalCode": "20148", "addressLocality": "Hamburg", "addressCountry": "DE"},
+      "sameAs": ["https://instagram.com/flixtake.pictures", "https://youtube.com/@flixtake.pictures"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://flixtakepictures.com/#site",
+      "url": "https://flixtakepictures.com/",
+      "name": "Flixtake Pictures",
+      "inLanguage": "de",
+      "publisher": {"@id": "https://flixtakepictures.com/#org"}
+    },
+    {
+      "@type": "ItemList",
+      "name": "Filme von Flixtake Pictures",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "item": {"@type": "Movie", "name": "Skogstad", "dateCreated": "2026", "genre": "Spielfilm", "productionCompany": {"@id": "https://flixtakepictures.com/#org"}}},
+        {"@type": "ListItem", "position": 2, "item": {"@type": "Movie", "name": "Brain Rent", "dateCreated": "2026", "genre": "Kurzfilm", "productionCompany": {"@id": "https://flixtakepictures.com/#org"}}},
+        {"@type": "ListItem", "position": 3, "item": {"@type": "Movie", "name": "Für Elise – Heimatlos", "dateCreated": "2025", "genre": "Serie", "productionCompany": {"@id": "https://flixtakepictures.com/#org"}}},
+        {"@type": "ListItem", "position": 4, "item": {"@type": "Movie", "name": "Die Tankstelle am Ende der Welt", "dateCreated": "2024", "genre": "Kurzfilm", "productionCompany": {"@id": "https://flixtakepictures.com/#org"}}}
+      ]
+    }
+  ]
+}
+</script>
+
 <style>
 :root{
   --paper:#ffffff; --paper-2:#f6f5f3; --ink:#101010; --ink-soft:#3a3a3a;
@@ -23,45 +86,45 @@ a{color:inherit;text-decoration:none}
 img{display:block;max-width:100%}
 ::selection{background:var(--ink);color:var(--paper)}
 .label{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--grey);font-weight:500}
+.visually-hidden{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 
 .nav{position:fixed;top:0;left:0;right:0;z-index:50;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
-  padding:20px var(--pad);color:#fff;transition:background .35s,color .35s,border-color .35s;border-bottom:1px solid transparent}
+  padding:18px var(--pad);color:#fff;transition:background .35s,color .35s,border-color .35s;border-bottom:1px solid transparent}
 .nav.solid{background:rgba(255,255,255,.94);backdrop-filter:blur(10px);color:var(--ink);border-bottom:1px solid var(--line)}
 .nav .left{display:flex;align-items:center;gap:14px}
-.burger{display:flex;flex-direction:column;gap:4px;background:none;border:0;cursor:pointer;padding:4px}
+.burger{display:flex;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:8px 4px}
 .burger span{width:24px;height:2px;background:currentColor;display:block;border-radius:2px}
 .menu-label{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:500}
 .wordmark{justify-self:center;font-weight:600;font-size:clamp(13px,1.5vw,17px);letter-spacing:.34em;text-transform:uppercase;white-space:nowrap}
 .nav .right{justify-self:end;display:flex;align-items:center;gap:18px}
-.icon{background:none;border:0;cursor:pointer;color:inherit;display:grid;place-items:center;padding:4px}
+.icon{background:none;border:0;cursor:pointer;color:inherit;display:grid;place-items:center;padding:8px}
 .icon:hover{opacity:.65}
-@media(max-width:560px){.wordmark{letter-spacing:.16em;font-size:12px}.menu-label{display:none}}
 .searchbar{position:fixed;top:0;left:0;right:0;z-index:55;background:#fff;border-bottom:1px solid var(--line);transform:translateY(-100%);transition:transform .35s var(--ease);padding:18px var(--pad)}
 .searchbar.open{transform:none}
 .sb-inner{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:14px}
 .sb-inner svg{color:var(--grey);flex:none}
 .sb-inner input{flex:1;border:0;outline:0;font-family:inherit;font-size:clamp(18px,2.4vw,26px);font-weight:300;letter-spacing:-.01em;color:var(--ink);background:none}
 .sb-inner input::placeholder{color:var(--grey)}
-.sb-close{background:none;border:0;cursor:pointer;color:var(--grey);font-size:18px;padding:4px;line-height:1}
+.sb-close{background:none;border:0;cursor:pointer;color:var(--grey);font-size:18px;padding:8px;line-height:1}
 .sb-close:hover{color:var(--ink)}
 .no-results{color:var(--grey);font-size:15px;margin:8px 0 0;display:none}
 
-.hero{position:relative;height:100svh;min-height:600px;overflow:hidden;color:#fff}
-.hero-media{position:absolute;inset:0;z-index:0}
-.hero-media .bg{position:absolute;inset:0;opacity:0;transform:scale(1.04);transition:opacity 1.1s var(--ease),transform 6s var(--ease)}
-.hero-media .bg::after{content:"";position:absolute;inset:0;opacity:.16;mix-blend-mode:overlay;
+.hero{position:relative;height:100svh;min-height:540px;overflow:hidden;color:#fff}
+.hero-media{position:absolute;inset:0;z-index:0;background:#0a0a0b}
+.hero-media .bg{position:absolute;inset:0;opacity:0;transform:scale(1.04);background-size:cover;background-position:center 42%;
+  transition:opacity 1.1s var(--ease),transform 6s var(--ease)}
+.hero-media .bg::after{content:"";position:absolute;inset:0;opacity:.12;mix-blend-mode:overlay;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 .hero-media .bg.active{opacity:1;transform:scale(1)}
 .hero-scrim{position:absolute;inset:0;z-index:1;
-  background:linear-gradient(90deg,rgba(6,6,8,.6),rgba(6,6,8,.15) 55%,transparent 75%),
-             linear-gradient(0deg,rgba(6,6,8,.6),transparent 45%)}
-.film-list{position:absolute;left:var(--pad);bottom:clamp(28px,6vh,64px);z-index:3;list-style:none;margin:0;padding:0}
-.film-list li{display:flex;align-items:flex-start;gap:10px;cursor:pointer;opacity:.5;transition:opacity .35s var(--ease);margin:1px 0}
+  background:linear-gradient(90deg,rgba(6,6,8,.62),rgba(6,6,8,.15) 55%,transparent 75%),
+             linear-gradient(0deg,rgba(6,6,8,.66),transparent 46%)}
+.film-list{position:absolute;left:var(--pad);right:var(--pad);bottom:clamp(26px,6vh,64px);z-index:3;list-style:none;margin:0;padding:0}
+.film-list li{display:flex;align-items:flex-start;gap:10px;cursor:pointer;opacity:.5;transition:opacity .35s var(--ease);padding:2px 0}
 .film-list li .t{font-weight:500;font-size:clamp(30px,5.4vw,80px);line-height:.98;letter-spacing:-.025em}
 .film-list li sup{font-size:clamp(9px,.8vw,12px);letter-spacing:.08em;font-weight:400;margin-top:.5em;opacity:.85}
 .film-list li.active,.film-list li:hover{opacity:1}
-.scroll-arrow{position:absolute;right:var(--pad);bottom:clamp(24px,5vh,48px);z-index:3;color:#fff;opacity:.85;
-  animation:bob 2.4s var(--ease) infinite}
+.scroll-arrow{position:absolute;right:var(--pad);bottom:clamp(22px,5vh,48px);z-index:3;color:#fff;opacity:.85;animation:bob 2.4s var(--ease) infinite}
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
 
 .sec{padding:clamp(56px,8vw,120px) var(--pad) 0}
@@ -69,13 +132,13 @@ img{display:block;max-width:100%}
 .sec-top h2{margin:0;font-weight:300;font-size:clamp(40px,8vw,120px);line-height:.9;letter-spacing:-.035em}
 .sort{display:flex;align-items:center;gap:16px;white-space:nowrap;padding-bottom:10px}
 .sort .lb{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey)}
-.sort button{background:none;border:0;cursor:pointer;font-family:inherit;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);padding:2px 0;transition:color .2s}
+.sort button{background:none;border:0;cursor:pointer;font-family:inherit;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);padding:6px 0;transition:color .2s}
 .sort button.active{color:var(--ink);border-bottom:1.5px solid var(--ink)}
 
 .grid{columns:3;column-gap:clamp(16px,2vw,30px)}
 @media(max-width:1000px){.grid{columns:2}}
 @media(max-width:620px){.grid{columns:1}}
-.tile{break-inside:avoid;margin:0 0 clamp(34px,3.4vw,60px);cursor:pointer}
+.tile{break-inside:avoid;margin:0 0 clamp(30px,3.4vw,60px);cursor:pointer}
 .tile .still{position:relative;width:100%;overflow:hidden;background:var(--ink)}
 .tile .art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
 .tile .art.grad::after{content:"";position:absolute;inset:0;opacity:.14;mix-blend-mode:overlay;
@@ -121,7 +184,7 @@ footer{padding:clamp(46px,6vw,80px) var(--pad) 40px;border-top:1px solid var(--l
   transition:transform .55s var(--ease);padding:20px var(--pad);display:flex;flex-direction:column}
 .overlay-menu.open{transform:none}
 .om-top{display:grid;grid-template-columns:1fr auto 1fr;align-items:center}
-.om-close{justify-self:start;background:none;border:0;cursor:pointer;font-size:11px;letter-spacing:.18em;text-transform:uppercase}
+.om-close{justify-self:start;background:none;border:0;cursor:pointer;font-size:11px;letter-spacing:.18em;text-transform:uppercase;padding:8px 0}
 .om-top .wordmark{color:var(--ink)}
 .om-links{flex:1;display:flex;flex-direction:column;justify-content:center;gap:clamp(6px,1vw,14px)}
 .om-links a{font-weight:300;font-size:clamp(38px,8vw,104px);line-height:1;letter-spacing:-.03em;width:max-content;transition:opacity .2s}
@@ -131,10 +194,27 @@ footer{padding:clamp(46px,6vw,80px) var(--pad) 40px;border-top:1px solid var(--l
 
 .rv{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
 .rv.in{opacity:1;transform:none}
+
+/* ---------- mobile ---------- */
+@media(max-width:640px){
+  .menu-label{display:none}
+  .wordmark{letter-spacing:.18em;font-size:12px}
+  .hero-scrim{background:linear-gradient(0deg,rgba(6,6,8,.8),transparent 58%),linear-gradient(90deg,rgba(6,6,8,.45),transparent 55%)}
+  .film-list{left:16px;right:16px}
+  .film-list li .t{font-size:clamp(27px,8.6vw,44px)}
+  .film-list li sup{font-size:10px}
+  .sec-top{flex-direction:column;align-items:flex-start;gap:10px}
+  .sort{padding-bottom:0}
+  .sec-top h2{font-size:clamp(38px,13vw,64px)}
+  .tile .overlay{padding:16px;gap:10px}
+  .foot nav{gap:14px 18px}
+  .om-foot{margin-top:auto}
+}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.hero-media .bg{transition:opacity .3s}}
 </style>
 </head>
 <body>
+<h1 class="visually-hidden">Flixtake Pictures — Kino-Studio aus Hamburg: Spielfilme, Serien und Kurzfilme</h1>
 
 <header class="nav" id="nav">
   <div class="left">
@@ -157,22 +237,22 @@ footer{padding:clamp(46px,6vw,80px) var(--pad) 40px;border-top:1px solid var(--l
   </div>
 </div>
 
-<section class="hero" id="top">
+<section class="hero" id="top" aria-label="Aktuelle Produktionen">
   <div class="hero-media">
-    <div class="bg active" data-film="skogstad" style="background:radial-gradient(90% 120% at 55% 25%,#33463b,transparent 60%),radial-gradient(80% 90% at 85% 90%,#141f19,transparent 55%),linear-gradient(120deg,#141b16,#080b09)"></div>
-    <div class="bg" data-film="brain-rent" style="background:radial-gradient(90% 120% at 60% 30%,#463a54,transparent 60%),radial-gradient(80% 90% at 15% 85%,#1c1526,transparent 55%),linear-gradient(120deg,#181322,#09070d)"></div>
-    <div class="bg" data-film="i-think-i-killed" style="background:radial-gradient(90% 120% at 60% 28%,#5a2626,transparent 60%),radial-gradient(80% 90% at 20% 88%,#1e1010,transparent 55%),linear-gradient(120deg,#1a1010,#0a0707)"></div>
-    <div class="bg" data-film="fuer-elise" style="background:radial-gradient(90% 120% at 60% 25%,#5a4526,transparent 60%),radial-gradient(80% 90% at 20% 90%,#241c10,transparent 55%),linear-gradient(120deg,#1d1710,#0a0806)"></div>
+    <div class="bg active" data-film="brain-rent" style="background-image:url(img/hero/brain-rent.jpg)"></div>
+    <div class="bg" data-film="fuer-elise" style="background-image:url(img/hero/fuer-elise.jpg)"></div>
+    <div class="bg" data-film="tankstelle" style="background-image:url(img/hero/tankstelle.jpg)"></div>
+    <div class="bg" data-film="skogstad" style="background:radial-gradient(90% 120% at 55% 25%,#33463b,transparent 60%),radial-gradient(80% 90% at 85% 90%,#141f19,transparent 55%),linear-gradient(120deg,#141b16,#080b09)"></div>
     <div class="bg" data-film="drugged-guns" style="background:radial-gradient(90% 120% at 65% 30%,#5a2e1c,transparent 60%),radial-gradient(80% 90% at 20% 90%,#2a1712,transparent 55%),linear-gradient(120deg,#1c130e,#0a0908)"></div>
     <div class="bg" data-film="business-digga" style="background:radial-gradient(90% 120% at 60% 30%,#284652,transparent 60%),radial-gradient(80% 90% at 85% 90%,#0f1e26,transparent 55%),linear-gradient(120deg,#101d24,#070c0f)"></div>
   </div>
   <div class="hero-scrim"></div>
 
   <ul class="film-list" id="filmList">
-    <li data-film="skogstad" class="active"><span class="t">Skogstad</span><sup>2026</sup></li>
-    <li data-film="brain-rent"><span class="t">Brain Rent</span><sup>2026</sup></li>
-    <li data-film="i-think-i-killed"><span class="t">I think I killed</span><sup>2025</sup></li>
+    <li data-film="brain-rent" class="active"><span class="t">Brain Rent</span><sup>2026</sup></li>
     <li data-film="fuer-elise"><span class="t">Für Elise</span><sup>2025</sup></li>
+    <li data-film="tankstelle"><span class="t">Die Tankstelle</span><sup>2024</sup></li>
+    <li data-film="skogstad"><span class="t">Skogstad</span><sup>2026</sup></li>
     <li data-film="drugged-guns"><span class="t">Drugged Guns</span><sup>2025</sup></li>
     <li data-film="business-digga"><span class="t">Business Digga</span><sup>2025</sup></li>
   </ul>
@@ -183,7 +263,7 @@ footer{padding:clamp(46px,6vw,80px) var(--pad) 40px;border-top:1px solid var(--l
 </section>
 
 <main>
-  <section class="sec" id="filme">
+  <section class="sec" id="filme" aria-label="Alle Filme">
     <div class="sec-top">
       <h2 class="rv">Alle Filme</h2>
       <div class="sort rv">
@@ -195,31 +275,31 @@ footer{padding:clamp(46px,6vw,80px) var(--pad) 40px;border-top:1px solid var(--l
     <div class="grid" id="grid">
 
       <figure class="tile" data-year="2026" data-title="Skogstad">
-        <div class="still" style="aspect-ratio:2/3"><img class="art" src="img/skogstad.jpg" alt="Skogstad" loading="lazy" />
+        <div class="still" style="aspect-ratio:2/3"><img class="art" src="img/skogstad.jpg" alt="Skogstad — Plakat" loading="lazy" />
           <div class="overlay"><div class="credit"><div class="k">Regie</div><div class="v">Finn Schmüser &amp; Tim Münzhardt</div></div><div class="credit"><div class="k">Mit</div><div class="v">Mark Zappe</div></div><div class="credit"><div class="k">Sparte</div><div class="v">Kino-Spielfilm · in Entwicklung</div></div></div></div>
         <figcaption><div class="label cap-label">Spielfilm · 2026</div><h3>Skogstad</h3></figcaption>
       </figure>
 
       <figure class="tile" data-year="2026" data-title="Brain Rent" data-href="https://www.youtube.com/watch?v=msbwlPzDKCg">
-        <div class="still" style="aspect-ratio:16/9"><img class="art" src="https://img.youtube.com/vi/msbwlPzDKCg/hqdefault.jpg" alt="Brain Rent" loading="lazy" referrerpolicy="no-referrer" />
+        <div class="still" style="aspect-ratio:16/9"><img class="art" src="https://img.youtube.com/vi/msbwlPzDKCg/hqdefault.jpg" alt="Brain Rent — Still" loading="lazy" referrerpolicy="no-referrer" />
           <div class="overlay"><div class="credit"><div class="k">Regie</div><div class="v">Finn Schmüser &amp; Tim Münzhardt</div></div><div class="credit"><div class="k">Kamera</div><div class="v">Louis Krogmann</div></div><div class="credit"><div class="k">Mit</div><div class="v">Marcus Prell, Cassy Cassau</div></div><div class="credit"><div class="k">Trailer</div><div class="v">▶ Auf YouTube ansehen</div></div></div></div>
         <figcaption><div class="label cap-label">Kurzfilm · 2026 · 99 Fire Films (Beitrag)</div><h3>Brain Rent</h3></figcaption>
       </figure>
 
       <figure class="tile" data-year="2025" data-title="I think I killed">
-        <div class="still" style="aspect-ratio:2/3"><img class="art" src="img/i-think-i-killed.jpg" alt="I think I killed" loading="lazy" />
+        <div class="still" style="aspect-ratio:2/3"><img class="art" src="img/i-think-i-killed.jpg" alt="I think I killed — Plakat" loading="lazy" />
           <div class="overlay"><div class="credit"><div class="k">Regie &amp; Buch</div><div class="v">Tim Münzhardt</div></div><div class="credit"><div class="k">Mit</div><div class="v">Finn Schmüser</div></div></div></div>
         <figcaption><div class="label cap-label">Kurzfilm · 2025</div><h3>I think I killed</h3></figcaption>
       </figure>
 
       <figure class="tile" data-year="2025" data-title="Für Elise – Heimatlos">
-        <div class="still" style="aspect-ratio:2/3"><img class="art" src="img/fuer-elise.jpg" alt="Für Elise – Heimatlos" loading="lazy" />
+        <div class="still" style="aspect-ratio:2/3"><img class="art" src="img/fuer-elise.jpg" alt="Für Elise – Heimatlos — Plakat" loading="lazy" />
           <div class="overlay"><div class="credit"><div class="k">Regie</div><div class="v">Finn Schmüser</div></div><div class="credit"><div class="k">Kamera</div><div class="v">Louis Krogmann</div></div><div class="credit"><div class="k">Mit</div><div class="v">Sandra Karner, Zoe Johnson</div></div></div></div>
         <figcaption><div class="label cap-label">Serienpilot · 2025</div><h3>Für Elise – Heimatlos</h3></figcaption>
       </figure>
 
       <figure class="tile" data-year="2025" data-title="Drugged Guns">
-        <div class="still" style="aspect-ratio:2/3"><img class="art" src="img/drugged-guns.jpg" alt="Drugged Guns" loading="lazy" />
+        <div class="still" style="aspect-ratio:2/3"><img class="art" src="img/drugged-guns.jpg" alt="Drugged Guns — Plakat" loading="lazy" />
           <div class="overlay"><div class="credit"><div class="k">Regie &amp; Buch</div><div class="v">Finn Schmüser</div></div><div class="credit"><div class="k">Kamera</div><div class="v">Louis Krogmann</div></div><div class="credit"><div class="k">Mit</div><div class="v">Remi Galtay, Jan Friedrichsen</div></div></div></div>
         <figcaption><div class="label cap-label">Ausbildungsproduktion · 2025</div><h3>Drugged Guns</h3></figcaption>
       </figure>
@@ -231,7 +311,7 @@ footer{padding:clamp(46px,6vw,80px) var(--pad) 40px;border-top:1px solid var(--l
       </figure>
 
       <figure class="tile" data-year="2025" data-title="Business Digga" data-href="https://www.instagram.com/reel/DT7vsfVjQ5b/">
-        <div class="still" style="aspect-ratio:2/3"><img class="art" src="img/business-digga.jpg" alt="Business Digga" loading="lazy" />
+        <div class="still" style="aspect-ratio:2/3"><img class="art" src="img/business-digga.jpg" alt="Business Digga — Cover" loading="lazy" />
           <div class="overlay"><div class="credit"><div class="k">Regie</div><div class="v">Finn Schmüser &amp; Tim Münzhardt</div></div><div class="credit"><div class="k">Mit</div><div class="v">Finn Schmüser, Charlotta Lovis Damiani</div></div><div class="credit"><div class="k">Trailer</div><div class="v">▶ Auf Instagram ansehen</div></div></div></div>
         <figcaption><div class="label cap-label">Serie · 2025</div><h3>Business Digga</h3></figcaption>
       </figure>
@@ -249,7 +329,7 @@ footer{padding:clamp(46px,6vw,80px) var(--pad) 40px;border-top:1px solid var(--l
       </figure>
 
       <figure class="tile" data-year="2024" data-title="Die Tankstelle am Ende der Welt">
-        <div class="still" style="aspect-ratio:1/1"><img class="art" src="img/tankstelle.jpg" alt="Die Tankstelle am Ende der Welt" loading="lazy" />
+        <div class="still" style="aspect-ratio:1/1"><img class="art" src="img/hero/tankstelle.jpg" alt="Die Tankstelle am Ende der Welt — Still" loading="lazy" />
           <div class="overlay"><div class="credit"><div class="k">Regie</div><div class="v">Finn Schmüser &amp; Tim Münzhardt</div></div><div class="credit"><div class="k">Kamera</div><div class="v">Louis Krogmann</div></div><div class="credit"><div class="k">Mit</div><div class="v">Mark Zappe, Claus-Peter Rathjen</div></div></div></div>
         <figcaption><div class="label cap-label">Kurzfilm · 2024</div><h3>Die Tankstelle am Ende der Welt</h3></figcaption>
       </figure>
@@ -258,9 +338,9 @@ footer{padding:clamp(46px,6vw,80px) var(--pad) 40px;border-top:1px solid var(--l
     <p class="no-results" id="noResults">Keine Filme gefunden.</p>
   </section>
 
-  <section class="studio" id="studio">
+  <section class="studio" id="studio" aria-label="Über das Studio">
     <div class="grid2">
-      <p class="big rv">Flixtake Pictures ist ein junges Film-Studio aus Hamburg. Wir drehen <b>Filme, die bleiben</b> — vom Kurzfilm bis zum ersten Kino-Spielfilm, mit Haltung und dem Blick fürs Bild.</p>
+      <p class="big rv">Flixtake Pictures ist ein junges Kino-Studio aus Hamburg. Wir drehen <b>Filme, die bleiben</b> — vom Kurzfilm bis zum ersten Kino-Spielfilm, mit Haltung und dem Blick fürs Bild.</p>
       <div class="side rv">
         <div class="label">Das Studio</div>
         <p>„Embraced emotional pictures." Wir behaupten nicht, etwas zu sein, das wir noch nicht sind — wir zeigen die Arbeit. Bild für Bild.</p>
@@ -270,7 +350,7 @@ footer{padding:clamp(46px,6vw,80px) var(--pad) 40px;border-top:1px solid var(--l
     </div>
   </section>
 
-  <section class="news" id="kontakt">
+  <section class="news" id="kontakt" aria-label="Newsletter">
     <div class="in rv">
       <h2>Mehr von Flixtake?</h2>
       <p>Trailer, Release-Daten und Post aus dem Studio. Nicht zu oft — gerade richtig.</p>
@@ -286,7 +366,7 @@ footer{padding:clamp(46px,6vw,80px) var(--pad) 40px;border-top:1px solid var(--l
 <footer>
   <div class="foot">
     <div class="wm">Flixtake Pictures</div>
-    <nav>
+    <nav aria-label="Footer">
       <a href="#filme">Filme</a><a href="#studio">Studio</a><a href="#kontakt">Newsletter</a>
       <a href="/login">Konto</a>
       <a href="mailto:pictures@flixtake.com">Kontakt</a>
@@ -305,7 +385,7 @@ footer{padding:clamp(46px,6vw,80px) var(--pad) 40px;border-top:1px solid var(--l
     <span class="wordmark">Flixtake&nbsp;Pictures</span>
     <span></span>
   </div>
-  <nav class="om-links">
+  <nav class="om-links" aria-label="Hauptmenü">
     <a href="#filme" data-close>Filme</a>
     <a href="#studio" data-close>Studio</a>
     <a href="#kontakt" data-close>Newsletter</a>
@@ -319,10 +399,12 @@ footer{padding:clamp(46px,6vw,80px) var(--pad) 40px;border-top:1px solid var(--l
 </div>
 
 <script>
+// nav
 const nav=document.getElementById('nav');
 function navState(){nav.classList.toggle('solid',scrollY>innerHeight*0.82);}
-addEventListener('scroll',navState);navState();
+addEventListener('scroll',navState,{passive:true});navState();
 
+// menu overlay
 const menu=document.getElementById('menu');
 const openMenu=()=>{menu.classList.add('open');document.body.style.overflow='hidden'};
 const closeMenu=()=>{menu.classList.remove('open');document.body.style.overflow=''};
@@ -331,6 +413,7 @@ document.getElementById('menuClose').addEventListener('click',closeMenu);
 document.querySelectorAll('#menu [data-close]').forEach(a=>a.addEventListener('click',closeMenu));
 addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu()});
 
+// hero cycling (static curated stills)
 const items=[...document.querySelectorAll('#filmList li')];
 const bgs={};document.querySelectorAll('.hero-media .bg').forEach(b=>bgs[b.dataset.film]=b);
 let idx=0,timer=null;
@@ -340,28 +423,66 @@ function activate(i){
   const f=items[idx].dataset.film;
   Object.keys(bgs).forEach(k=>bgs[k].classList.toggle('active',k===f));
 }
-function start(){timer=setInterval(()=>activate(idx+1),4200);}
-function stop(){if(timer){clearInterval(timer);timer=null;}}
-items.forEach((li,k)=>{
-  li.addEventListener('mouseenter',()=>{stop();activate(k);});
-  li.addEventListener('mouseleave',start);
-});
-activate(0);start();
+function startHero(){timer=setInterval(()=>activate(idx+1),4600);}
+function stopHero(){if(timer){clearInterval(timer);timer=null;}}
+items.forEach((li,k)=>{li.addEventListener('mouseenter',()=>{stopHero();activate(k);});li.addEventListener('mouseleave',startHero);});
+activate(0);startHero();
 
+// ---------- catalog: live from the database (/api/films), static markup as fallback ----------
+const GRADS=[
+  'radial-gradient(70% 80% at 50% 32%,#5a2630,transparent 65%),linear-gradient(160deg,#201014,#0a0708)',
+  'radial-gradient(70% 90% at 40% 30%,#52304a,transparent 65%),linear-gradient(160deg,#241623,#0b080b)',
+  'radial-gradient(75% 100% at 60% 30%,#2a2e46,transparent 62%),linear-gradient(150deg,#12141f,#07080c)',
+  'radial-gradient(70% 90% at 60% 30%,#3c4a3f,transparent 65%),linear-gradient(160deg,#1a221c,#0a0d0b)'
+];
+function el(tag,cls){const e=document.createElement(tag);if(cls)e.className=cls;return e;}
+function credit(k,v){const c=el('div','credit');const a=el('div','k');a.textContent=k;const b=el('div','v');b.textContent=v;c.append(a,b);return c;}
+function isVideo(u){return /youtube|ytimg|vimeo/.test(u||'');}
+function renderGrid(films){
+  const grid=document.getElementById('grid');
+  while(grid.firstChild) grid.removeChild(grid.firstChild);
+  films.forEach((f,i)=>{
+    const fig=el('figure','tile');
+    fig.dataset.year=f.year||''; fig.dataset.title=f.title;
+    if(f.trailer) fig.dataset.href=f.trailer;
+    const still=el('div','still');
+    let ar='2 / 3';
+    if(isVideo(f.image)) ar='16 / 9';
+    else if(f.slug==='tankstelle') ar='1 / 1';
+    else if(!f.image) ar=['4 / 5','3 / 2','16 / 9'][i%3];
+    still.style.aspectRatio=ar;
+    if(f.image){
+      const im=el('img','art'); im.src=f.image; im.alt=f.title; im.loading='lazy';
+      if(isVideo(f.image)) im.referrerPolicy='no-referrer';
+      still.appendChild(im);
+    }else{
+      const g=el('div','art grad'); g.style.background=GRADS[i%GRADS.length]; still.appendChild(g);
+    }
+    const ov=el('div','overlay'); let any=false;
+    if(f.director){ov.appendChild(credit('Regie',f.director));any=true;}
+    if(f.dop){ov.appendChild(credit('Kamera',f.dop));any=true;}
+    if(f.cast_list){ov.appendChild(credit('Mit',f.cast_list));any=true;}
+    if(f.trailer){ov.appendChild(credit('Trailer','▶ Ansehen'));any=true;}
+    if(!any) ov.appendChild(credit('Sparte',f.format||'Film'));
+    still.appendChild(ov); fig.appendChild(still);
+    const cap=el('figcaption');
+    const lbl=el('div','label cap-label'); lbl.textContent=[f.format,f.year].filter(Boolean).join(' · ');
+    const h=el('h3'); h.textContent=f.title;
+    cap.append(lbl,h); fig.appendChild(cap);
+    grid.appendChild(fig);
+  });
+}
+
+let tiles=[];
 const grid=document.getElementById('grid');
-const tiles=[...grid.children];
+function initGridInteractions(){
+  tiles=[...grid.children];
+  tiles.forEach(t=>{ if(t.dataset.href) t.addEventListener('click',()=>window.open(t.dataset.href,'_blank','noopener')); });
+}
 const btnNew=document.getElementById('sortNew'),btnAz=document.getElementById('sortAz');
 const put=order=>order.forEach(t=>grid.appendChild(t));
 btnNew.addEventListener('click',()=>{btnNew.classList.add('active');btnAz.classList.remove('active');put([...tiles].sort((a,b)=>(+b.dataset.year)-(+a.dataset.year)));});
 btnAz.addEventListener('click',()=>{btnAz.classList.add('active');btnNew.classList.remove('active');put([...tiles].sort((a,b)=>a.dataset.title.localeCompare(b.dataset.title,'de')));});
-
-// open trailer for tiles that have one
-document.querySelectorAll('.tile[data-href]').forEach(t=>t.addEventListener('click',()=>window.open(t.dataset.href,'_blank','noopener')));
-
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.14});
-document.querySelectorAll('.rv').forEach(el=>io.observe(el));
-
-document.getElementById('nl').addEventListener('submit',e=>{e.preventDefault();const m=e.target.querySelector('input').value.trim();if(m){location.href='mailto:pictures@flixtake.com?subject='+encodeURIComponent('Newsletter-Anmeldung')+'&body='+encodeURIComponent('Bitte in den Flixtake-Pictures-Newsletter eintragen: '+m);}document.getElementById('nlok').style.display='block';e.target.reset();});
 
 // search
 const searchbar=document.getElementById('searchbar');
@@ -375,6 +496,22 @@ document.getElementById('searchClose').addEventListener('click',closeSearch);
 searchInput.addEventListener('input',()=>filterFilms(searchInput.value));
 searchInput.addEventListener('keydown',e=>{if(e.key==='Enter')document.getElementById('filme').scrollIntoView({behavior:'smooth'});});
 addEventListener('keydown',e=>{if(e.key==='Escape'&&searchbar.classList.contains('open'))closeSearch();});
+
+// newsletter -> mailto
+document.getElementById('nl').addEventListener('submit',e=>{e.preventDefault();const m=e.target.querySelector('input').value.trim();if(m){location.href='mailto:pictures@flixtake.com?subject='+encodeURIComponent('Newsletter-Anmeldung')+'&body='+encodeURIComponent('Bitte in den Flixtake-Pictures-Newsletter eintragen: '+m);}document.getElementById('nlok').style.display='block';e.target.reset();});
+
+// reveal
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.14});
+document.querySelectorAll('.rv').forEach(el2=>io.observe(el2));
+
+// boot: pull live films from the admin database; keep static markup if unavailable
+(async function(){
+  try{
+    const r=await fetch('/api/films',{cache:'no-store'});
+    if(r.ok){ const j=await r.json(); if(j && j.films && j.films.length) renderGrid(j.films); }
+  }catch(e){}
+  initGridInteractions();
+})();
 </script>
 </body>
 </html>
