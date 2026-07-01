@@ -407,20 +407,37 @@ document.getElementById('menuClose').addEventListener('click',closeMenu);
 document.querySelectorAll('#menu [data-close]').forEach(a=>a.addEventListener('click',closeMenu));
 addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu()});
 
-// hero cycling (static curated stills)
-const items=[...document.querySelectorAll('#filmList li')];
-const bgs={};document.querySelectorAll('.hero-media .bg').forEach(b=>bgs[b.dataset.film]=b);
-let idx=0,timer=null;
-function activate(i){
-  idx=(i+items.length)%items.length;
-  items.forEach((li,k)=>li.classList.toggle('active',k===idx));
-  const f=items[idx].dataset.film;
-  Object.keys(bgs).forEach(k=>bgs[k].classList.toggle('active',k===f));
+// hero: renders from the database (featured films with a hero still); static markup is the fallback
+let heroItems=[],heroBgs={},heroIdx=0,heroTimer=null;
+function activateHero(i){
+  if(!heroItems.length) return;
+  heroIdx=(i+heroItems.length)%heroItems.length;
+  heroItems.forEach((li,k)=>li.classList.toggle('active',k===heroIdx));
+  const f=heroItems[heroIdx].dataset.film;
+  Object.keys(heroBgs).forEach(k=>heroBgs[k].classList.toggle('active',k===f));
 }
-function startHero(){timer=setInterval(()=>activate(idx+1),4600);}
-function stopHero(){if(timer){clearInterval(timer);timer=null;}}
-items.forEach((li,k)=>{li.addEventListener('mouseenter',()=>{stopHero();activate(k);});li.addEventListener('mouseleave',startHero);});
-activate(0);startHero();
+function startHero(){if(heroItems.length>1)heroTimer=setInterval(()=>activateHero(heroIdx+1),4600);}
+function stopHero(){if(heroTimer){clearInterval(heroTimer);heroTimer=null;}}
+function initHero(){
+  stopHero();
+  heroItems=[...document.querySelectorAll('#filmList li')];
+  heroBgs={};document.querySelectorAll('.hero-media .bg').forEach(b=>heroBgs[b.dataset.film]=b);
+  heroItems.forEach((li,k)=>{li.addEventListener('mouseenter',()=>{stopHero();activateHero(k);});li.addEventListener('mouseleave',startHero);});
+  heroIdx=0;activateHero(0);startHero();
+}
+function heroTitle(f){const s=(f.title||'').split(' – ')[0];return s.length>16?s.split(' ').slice(0,2).join(' '):s;}
+function renderHero(films){
+  const feat=films.filter(f=>f.featured&&f.hero_image);
+  if(!feat.length) return;
+  const media=document.querySelector('.hero-media');const list=document.getElementById('filmList');
+  while(media.firstChild)media.removeChild(media.firstChild);
+  while(list.firstChild)list.removeChild(list.firstChild);
+  feat.forEach((f,i)=>{
+    const bg=el('div','bg'+(i===0?' active':''));bg.dataset.film=f.slug;bg.style.backgroundImage='url('+f.hero_image+')';media.appendChild(bg);
+    const li=document.createElement('li');li.dataset.film=f.slug;if(i===0)li.classList.add('active');
+    const t=el('span','t');t.textContent=heroTitle(f);const sup=document.createElement('sup');sup.textContent=f.year||'';li.append(t,sup);list.appendChild(li);
+  });
+}
 
 // ---------- catalog: live from the database (/api/films), static markup as fallback ----------
 const GRADS=[
@@ -500,10 +517,13 @@ document.querySelectorAll('.rv').forEach(el2=>io.observe(el2));
 
 // boot: pull live films from the admin database; keep static markup if unavailable
 (async function(){
+  let films=null;
   try{
     const r=await fetch('/api/films',{cache:'no-store'});
-    if(r.ok){ const j=await r.json(); if(j && j.films && j.films.length) renderGrid(j.films); }
+    if(r.ok){ const j=await r.json(); if(j && j.films && j.films.length) films=j.films; }
   }catch(e){}
+  if(films){ renderHero(films); renderGrid(films); }
+  initHero();
   initGridInteractions();
 })();
 </script>
