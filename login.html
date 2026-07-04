@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Konto — Flixtake Pictures</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+:root{--ink:#101010;--soft:#3a3a3a;--grey:#8c8c8c;--line:#e7e6e3;--ease:cubic-bezier(.22,.7,.2,1)}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Archivo",Helvetica,Arial,sans-serif;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased;letter-spacing:.005em}
+a{color:inherit}
+.top{display:flex;align-items:center;justify-content:space-between;padding:22px clamp(18px,4vw,56px);border-bottom:1px solid var(--line)}
+.wm{font-weight:600;letter-spacing:.32em;text-transform:uppercase;font-size:14px}
+.top a.back{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey)}
+.wrap{min-height:calc(100vh - 67px);display:grid;place-items:center;padding:40px 20px}
+.card{width:100%;max-width:400px}
+.kicker{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--grey);margin-bottom:12px}
+h1{font-weight:300;font-size:clamp(34px,6vw,52px);letter-spacing:-.03em;line-height:1;margin:0 0 8px}
+.lead{color:var(--soft);font-size:14px;line-height:1.55;margin:0 0 30px}
+.field{margin-bottom:20px}
+.field label{display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin-bottom:8px}
+.field input{width:100%;border:0;border-bottom:1px solid var(--line);font-family:inherit;font-size:16px;padding:8px 0;outline:none;transition:border-color .2s}
+.field input:focus{border-color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;width:100%;background:var(--ink);color:#fff;border:0;cursor:pointer;
+  font-family:inherit;font-size:13px;letter-spacing:.06em;padding:15px;transition:opacity .2s}
+.btn:hover{opacity:.85}
+.row-between{display:flex;justify-content:space-between;align-items:center;margin-top:16px}
+.muted{color:var(--grey);font-size:12px}
+.demo{margin-top:26px;padding:12px 14px;background:#f6f5f3;font-size:12px;color:var(--soft);line-height:1.5;letter-spacing:.01em}
+.hidden{display:none}
+/* account view */
+.acct .avatar{width:56px;height:56px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-size:18px;font-weight:500;margin-bottom:18px}
+.acct .name{font-weight:500;font-size:20px}
+.acct .mail{color:var(--grey);font-size:14px;margin-top:2px}
+.rolebadge{display:inline-block;margin-top:14px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;background:#eef3ff;color:#2f6bff;padding:5px 10px;border-radius:6px}
+.acct .divider{height:1px;background:var(--line);margin:26px 0}
+.admin-cta{display:flex;align-items:center;justify-content:space-between;gap:14px;border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+.admin-cta .t{font-weight:500;font-size:15px}
+.admin-cta .s{color:var(--grey);font-size:12.5px;margin-top:2px}
+.admin-cta a{background:#2f6bff;color:#fff;font-size:13px;padding:11px 16px;border-radius:8px;white-space:nowrap;transition:background .2s}
+.admin-cta a:hover{background:#1f57e0}
+.logout{margin-top:22px;background:none;border:0;color:var(--grey);font-family:inherit;font-size:12px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;padding:0}
+.logout:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+<header class="top">
+  <span class="wm">Flixtake&nbsp;Pictures</span>
+  <a class="back" href="index.html">← Zur Website</a>
+</header>
+
+<div class="wrap">
+
+  <!-- LOGIN -->
+  <div class="card" id="loginCard">
+    <div class="kicker">Flixtake Pictures Konto</div>
+    <h1>Anmelden</h1>
+    <p class="lead">Melde dich mit deinem Flixtake-Pictures-Konto an.</p>
+    <form id="loginForm">
+      <div class="field"><label for="email">E-Mail</label><input id="email" type="email" required placeholder="name@flixtake.com" value="louis@flixtake.com" /></div>
+      <div class="field"><label for="pw">Passwort</label><input id="pw" type="password" required placeholder="••••••••" value="demo1234" /></div>
+      <button class="btn" type="submit">Anmelden</button>
+      <div class="row-between"><span class="muted">Angemeldet bleiben</span><a class="muted" href="#">Passwort vergessen?</a></div>
+    </form>
+    <div class="demo"><b>Demo:</b> Dies ist ein Mock-Login für den Prototyp. Beliebige Eingabe funktioniert — das Demo-Konto hat Admin-Rechte, daher erscheint danach der „Admin-Dashboard öffnen"-Button.</div>
+  </div>
+
+  <!-- ACCOUNT (after login) -->
+  <div class="card acct hidden" id="acctCard">
+    <div class="avatar">LK</div>
+    <div class="name" id="acctName">Louis Krogmann</div>
+    <div class="mail" id="acctMail">louis@flixtake.com</div>
+    <div class="rolebadge">Administrator</div>
+    <div class="divider"></div>
+    <div class="admin-cta">
+      <div>
+        <div class="t">Admin-Dashboard</div>
+        <div class="s">Website-Inhalte, Filme und Seiten bearbeiten</div>
+      </div>
+      <a href="admin.html">Admin-Dashboard öffnen</a>
+    </div>
+    <button class="logout" id="logout">Abmelden</button>
+  </div>
+
+</div>
+
+<script>
+const loginForm=document.getElementById('loginForm');
+const loginCard=document.getElementById('loginCard');
+const acctCard=document.getElementById('acctCard');
+loginForm.addEventListener('submit',e=>{
+  e.preventDefault();
+  const mail=document.getElementById('email').value.trim();
+  if(mail){document.getElementById('acctMail').textContent=mail;}
+  loginCard.classList.add('hidden');
+  acctCard.classList.remove('hidden');
+});
+document.getElementById('logout').addEventListener('click',()=>{
+  acctCard.classList.add('hidden');
+  loginCard.classList.remove('hidden');
+});
+</script>
+</body>
+</html>
