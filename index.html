@@ -509,7 +509,7 @@ searchInput.addEventListener('keydown',e=>{if(e.key==='Enter')document.getElemen
 addEventListener('keydown',e=>{if(e.key==='Escape'&&searchbar.classList.contains('open'))closeSearch();});
 
 // newsletter -> mailto
-document.getElementById('nl').addEventListener('submit',e=>{e.preventDefault();const m=e.target.querySelector('input').value.trim();if(m){location.href='mailto:pictures@flixtake.com?subject='+encodeURIComponent('Newsletter-Anmeldung')+'&body='+encodeURIComponent('Bitte in den Flixtake-Pictures-Newsletter eintragen: '+m);}document.getElementById('nlok').style.display='block';e.target.reset();});
+document.getElementById('nl').addEventListener('submit',async e=>{e.preventDefault();const inp=e.target.querySelector('input');const m=inp.value.trim();const ok=document.getElementById('nlok');if(!m)return;try{const r=await fetch('/api/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:m})});if(r.ok){ok.textContent='Danke — du bist dabei.';ok.style.display='block';e.target.reset();}else{const d=await r.json().catch(()=>({}));ok.textContent=d.error||'Bitte gültige E-Mail-Adresse eingeben.';ok.style.display='block';}}catch{ok.textContent='Verbindungsfehler — bitte später erneut versuchen.';ok.style.display='block';}});
 
 // reveal
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.14});
