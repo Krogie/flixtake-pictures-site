@@ -144,6 +144,11 @@ img{display:block;max-width:100%}
 .tile .art.grad::after{content:"";position:absolute;inset:0;opacity:.14;mix-blend-mode:overlay;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 .tile .overlay{position:absolute;inset:0;background:rgba(12,12,12,.62);opacity:0;transition:opacity .4s var(--ease);padding:22px;display:flex;flex-direction:column;gap:14px;color:#fff}
+.tile .poster-title{position:absolute;inset:0;z-index:1;display:flex;align-items:center;justify-content:center;text-align:center;padding:18px;color:#fff;font-weight:500;font-size:clamp(19px,2.1vw,30px);letter-spacing:-.01em;line-height:1.06;opacity:.94}
+.tile .bookmark{position:absolute;top:10px;right:10px;z-index:4;width:34px;height:34px;border-radius:50%;border:0;cursor:pointer;background:rgba(10,10,12,.5);color:#fff;font-size:16px;line-height:1;display:grid;place-items:center;transition:opacity .2s,transform .15s,background .2s;opacity:0}
+.tile:hover .bookmark,.tile .bookmark.saved{opacity:1}
+.tile .bookmark.saved{background:rgba(226,85,43,.92)}
+.tile .bookmark:hover{transform:scale(1.1)}
 .tile .credit .k{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:3px}
 .tile .credit .v{font-size:14px;line-height:1.3;color:#fff}
 .tile:hover .art{transform:scale(1.04)}
@@ -454,7 +459,7 @@ function renderGrid(films){
   while(grid.firstChild) grid.removeChild(grid.firstChild);
   films.forEach((f,i)=>{
     const fig=el('figure','tile');
-    fig.dataset.year=f.year||''; fig.dataset.title=f.title;
+    fig.dataset.year=f.year||''; fig.dataset.title=f.title; fig.dataset.slug=f.slug||'';
     if(f.trailer) fig.dataset.href=f.trailer;
     const still=el('div','still');
     let ar='2 / 3';
@@ -468,7 +473,11 @@ function renderGrid(films){
       still.appendChild(im);
     }else{
       const g=el('div','art grad'); g.style.background=GRADS[i%GRADS.length]; still.appendChild(g);
+      const pt=el('div','poster-title'); pt.textContent=f.title; still.appendChild(pt);
     }
+    const bm=el('button','bookmark'); bm.type='button'; bm.dataset.slug=f.slug||''; bm.textContent='☆'; bm.setAttribute('aria-label','Merken');
+    bm.addEventListener('click',ev=>{ev.stopPropagation();toggleFavorite(bm);});
+    still.appendChild(bm);
     const ov=el('div','overlay'); let any=false;
     if(f.director){ov.appendChild(credit('Regie',f.director));any=true;}
     if(f.dop){ov.appendChild(credit('Kamera',f.dop));any=true;}
@@ -482,6 +491,24 @@ function renderGrid(films){
     cap.append(lbl,h); fig.appendChild(cap);
     grid.appendChild(fig);
   });
+}
+
+// ---------- favorites (Merkliste) for logged-in members ----------
+let ME=null, FAVS=new Set();
+async function loadFavorites(){
+  try{
+    const r=await fetch('/api/me'); const d=await r.json(); ME=(d&&d.user)||null;
+    if(ME){ const rf=await fetch('/api/favorites'); if(rf.ok){ const df=await rf.json(); FAVS=new Set(df.favorites||[]); } }
+  }catch(e){ ME=null; }
+  document.querySelectorAll('.bookmark').forEach(b=>{ const on=FAVS.has(b.dataset.slug); b.textContent=on?'★':'☆'; b.classList.toggle('saved',on); });
+}
+async function toggleFavorite(btn){
+  if(!ME){ window.location.href='/login'; return; }
+  const slug=btn.dataset.slug, on=FAVS.has(slug);
+  try{
+    const r=await fetch('/api/favorites',{method:on?'DELETE':'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({slug})});
+    if(r.ok){ if(on)FAVS.delete(slug); else FAVS.add(slug); btn.textContent=on?'☆':'★'; btn.classList.toggle('saved',!on); }
+  }catch(e){}
 }
 
 let tiles=[];
@@ -525,6 +552,7 @@ document.querySelectorAll('.rv').forEach(el2=>io.observe(el2));
   if(films){ renderHero(films); renderGrid(films); }
   initHero();
   initGridInteractions();
+  loadFavorites();
 })();
 </script>
 </body>
